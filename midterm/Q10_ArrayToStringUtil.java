@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Q10_ArrayToStringUtil {
     public static void main(String[] args) {
@@ -8,13 +8,15 @@ public class Q10_ArrayToStringUtil {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
+
         System.out.println(arrayToString(arr));
-        
         sc.close();
     }
-    
-    static String arrayToString(int[] arr) {
+
+    public static String arrayToString(int[] arr) {
         if (arr == null) return "null";
+        if (arr.length == 0) return "[]";
+
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for (int i = 0; i < arr.length; i++) {

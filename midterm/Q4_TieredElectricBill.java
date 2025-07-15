@@ -1,39 +1,41 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Q4_TieredElectricBill {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int[] kWh = new int[n];
-        long total = 0;
+        int[] bills = new int[n];
+        int total = 0;
+
         for (int i = 0; i < n; i++) {
-            kWh[i] = sc.nextInt();
-            long bill = calc(kWh[i]);
-            System.out.printf("Bill: $%d\n", bill);
-            total += bill;
+            int kWh = sc.nextInt();
+            bills[i] = calc(kWh);
+            total += bills[i];
         }
-        System.out.printf("Total: $%d\n", total);
-        System.out.printf("Average: $%d\n", Math.round((double) total / n));
-        
+
+        for (int bill : bills) {
+            System.out.println("Bill: $" + bill);
+        }
+        System.out.println("Total: $" + total);
+        System.out.println("Average: $" + Math.round((double) total / n));
         sc.close();
     }
-    
-    static long calc(int k) {
+
+    static int calc(int kWh) {
+        int[] limits = {120, 210, 170, 200, 300};
         double[] rates = {1.68, 2.45, 3.70, 5.04, 6.24, 8.46};
-        int[] limits = {120, 330, 500, 700, 1000, Integer.MAX_VALUE};
-        double cost = 0;
-        int remaining = k;
-        for (int i = 0; i < limits.length; i++) {
-            int consume = Math.min(remaining, limits[i] - (i == 0 ? 0 : limits[i - 1]));
-            if (consume <= 0) break;
-            cost += consume * rates[i];
-            remaining -= consume;
+        int cost = 0, i = 0;
+        for (; i < limits.length && kWh > 0; i++) {
+            int used = Math.min(kWh, limits[i]);
+            cost += Math.round(used * rates[i]);
+            kWh -= used;
         }
-        return Math.round(cost);
+        if (kWh > 0) cost += Math.round(kWh * rates[i]);
+        return cost;
     }
-    
+
     /*
      * Time Complexity: O(n)
-     * 說明：每個 kWh 計算為 O(1)（固定 6 段），總共 n 次計算。
+     * 說明：每個用電量呼叫 calc 計算，最多執行常數次區段迴圈。
      */
 }

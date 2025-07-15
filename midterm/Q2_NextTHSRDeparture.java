@@ -22,16 +22,15 @@ public class Q2_NextTHSRDeparture {
                 left = mid + 1;
             }
         }
-        
+
         if (idx == n) {
             System.out.println("No train");
         } else {
             System.out.printf("%02d:%02d\n", times[idx] / 60, times[idx] % 60);
         }
-        
         sc.close();
     }
-    
+
     /*
      * Time Complexity: O(log n)
      * 說明：將時間轉為分鐘數為 O(n)，二分搜尋找下一班次為 O(log n)，總複雜度以 O(log n) 主導。

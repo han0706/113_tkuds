@@ -1,32 +1,29 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Q9_FindFiveStarStalls {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        double[] scores = new double[n];
-        int cnt = 0;
+        int[] scores = new int[n];
         for (int i = 0; i < n; i++) {
-            scores[i] = sc.nextDouble();
-            if (scores[i] == 5.0) cnt++;
+            scores[i] = sc.nextInt();
         }
-        
-        if (cnt == 0) {
+
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if (scores[i] == 5) result.add(i);
+        }
+
+        if (result.isEmpty()) {
             System.out.println("None");
         } else {
-            int[] indices = new int[cnt];
-            int pos = 0;
-            for (int i = 0; i < n; i++) {
-                if (scores[i] == 5.0) {
-                    indices[pos++] = i;
-                }
+            for (int i = 0; i < result.size(); i++) {
+                System.out.print(result.get(i));
+                if (i < result.size() - 1) System.out.print(" ");
             }
-            for (int i = 0; i < cnt; i++) {
-                System.out.print(indices[i]);
-                if (i < cnt - 1) System.out.print(" ");
-            }
+            System.out.println();
         }
-        
+
         sc.close();
     }
 }

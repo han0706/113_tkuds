@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Q5_CPBLPrefixWins {
     public static void main(String[] args) {
@@ -9,22 +9,21 @@ public class Q5_CPBLPrefixWins {
             games[i] = sc.nextInt();
         }
         int k = sc.nextInt();
-        
-        int[] prefixSum = new int[n + 1];
+        int[] ps = new int[n + 1];
         for (int i = 1; i <= n; i++) {
-            prefixSum[i] = prefixSum[i - 1] + games[i - 1];
+            ps[i] = ps[i - 1] + games[i - 1];
         }
-        
+
         System.out.print("PrefixSum:");
         for (int i = 1; i <= k; i++) {
-            System.out.print(" " + prefixSum[i]);
+            System.out.print(" " + ps[i]);
         }
-        
+        System.out.println();
         sc.close();
     }
-    
+
     /*
      * Time Complexity: O(n)
-     * 說明：建前綴和陣列需 O(n)，查詢 k 個結果為 O(k)，總複雜度為 O(n)。
+     * 說明：建立 prefix sum 陣列需一次走訪，為 O(n)。
      */
 }

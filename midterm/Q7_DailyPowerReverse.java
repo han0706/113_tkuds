@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Q7_DailyPowerReverse {
     public static void main(String[] args) {
@@ -7,21 +7,21 @@ public class Q7_DailyPowerReverse {
         for (int i = 0; i < 7; i++) {
             power[i] = sc.nextInt();
         }
+
         
-        int left = 0, right = 6;
-        while (left < right) {
-            int temp = power[left];
-            power[left] = power[right];
-            power[right] = temp;
-            left++;
-            right--;
+        for (int i = 0; i < 3; i++) {
+            int tmp = power[i];
+            power[i] = power[6 - i];
+            power[6 - i] = tmp;
         }
+
         
         for (int i = 0; i < 7; i++) {
             System.out.print(power[i]);
             if (i < 6) System.out.print(" ");
         }
-        
+        System.out.println();
+
         sc.close();
     }
 }
