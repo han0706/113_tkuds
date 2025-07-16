@@ -25,8 +25,15 @@ public class Q1_THSRStopCounter {
         sc.close();
     }
 
-    /*
-     * Time Complexity: O(n)
-     * 說明：走訪一次長度為 n 的陣列來尋找起訖站索引。
-     */
-}
+ }
+/*
+ * Time Complexity: O(n)
+ * 說明：
+ * - 使用一個 for 迴圈走訪 n 個站名以找出起訖站索引。
+ * - 每個元素最多檢查一次，因此是線性時間。
+ *
+ * Space Complexity: O(n)
+ * 說明：
+ * - 使用 String 陣列儲存 n 個站名。
+ * - 其他變數為常數空間。
+ */
