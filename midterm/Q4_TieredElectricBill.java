@@ -34,8 +34,16 @@ public class Q4_TieredElectricBill {
         return cost;
     }
 
-    /*
-     * Time Complexity: O(n)
-     * 說明：每個用電量呼叫 calc 計算，最多執行常數次區段迴圈。
-     */
+   /*
+ * Time Complexity: O(n)
+ * 說明：
+ * - 每筆電量計算一次帳單金額，共 n 筆。
+ * - 每次計算最多經過 6 個費率區間，視為常數時間。
+ *
+ * Space Complexity: O(1)
+ * 說明：
+ * - 僅使用固定變數累加總費用與平均，不需額外陣列。
+ * - 所有處理皆為原地計算。
+ */
+
 }

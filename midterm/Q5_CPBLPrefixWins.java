@@ -22,8 +22,15 @@ public class Q5_CPBLPrefixWins {
         sc.close();
     }
 
-    /*
-     * Time Complexity: O(n)
-     * 說明：建立 prefix sum 陣列需一次走訪，為 O(n)。
-     */
+    
 }
+/*
+ * Time Complexity: O(n)
+ * 說明：
+ * - 建立 prefix sum 陣列需一次走訪 n 筆資料。
+ * - 每項 prefix[i] = prefix[i-1] + a[i-1]，每次計算為 O(1)。
+ *
+ * Space Complexity: O(n)
+ * 說明：
+ * - 額外建立一個 prefixSum 陣列儲存前綴勝場，共 n 筆。
+ */

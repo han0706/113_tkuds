@@ -31,8 +31,18 @@ public class Q2_NextTHSRDeparture {
         sc.close();
     }
 
-    /*
-     * Time Complexity: O(log n)
-     * 說明：將時間轉為分鐘數為 O(n)，二分搜尋找下一班次為 O(log n)，總複雜度以 O(log n) 主導。
-     */
+   
+
 }
+ /*
+ * Time Complexity: O(n + log n)
+ * 說明：
+ * - O(n)：將 n 組時間字串轉換為分鐘數。
+ * - O(log n)：使用二分搜尋找出下一班比 query 大的時間。
+ * - 總體為 O(n + log n)，但主要由 O(n) 主導。
+ *
+ * Space Complexity: O(n)
+ * 說明：
+ * - 使用一個 int 陣列儲存 n 個分鐘數。
+ * - 其他變數為常數空間。
+ */

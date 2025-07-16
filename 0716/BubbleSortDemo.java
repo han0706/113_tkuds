@@ -113,3 +113,15 @@ class BubbleSortDemo {
         System.out.println("最終結果：" + java.util.Arrays.toString(numbers2));
     }
 }
+/*
+ * Time Complexity:
+ * bubbleSort: 
+ *   最佳 O(n)，當原陣列已排序時，第一次迴圈無交換則提前結束。
+ *   最壞 O(n^2)，需 n-1 輪，每輪最多 n 次比較與交換。
+ *   平均 O(n^2)，在亂序情況下仍需近似 n(n-1)/2 次比較。
+ *
+ * cocktailSort:
+ *   最佳 O(n)，與 bubbleSort 一樣若第一次就無交換可提前結束。
+ *   最壞 O(n^2)，每次掃描正向與反向一次，最多進行 n/2 輪，共約 n(n-1)/2 次比較。
+ *   平均 O(n^2)，效能與氣泡排序相近，略優於傳統 bubbleSort。
+ */

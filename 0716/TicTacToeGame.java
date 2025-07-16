@@ -138,7 +138,7 @@ class TicTacToeGame {
                     break;
                 }
                 
-                // 切換玩家
+                
                 currentPlayer = (currentPlayer == PLAYER_X) ? PLAYER_O : PLAYER_X;
             }
         }
